@@ -32,4 +32,8 @@ export default class Message extends Component {
             </div>
         )
     }
+
+    componentDidMount() {
+        console.log("mount message")
+    }
 }
