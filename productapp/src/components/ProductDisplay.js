@@ -1,8 +1,22 @@
+import React from "react";
 import { Component } from "react";
+import { connect } from "react-redux";
+import { deleteProduct, saveProduct } from "../store";
 import { ProductEditor } from "./ProductEditor";
 import ProductTable from "./ProductTable";
 
-export default class ProductDisplay extends Component {
+const mapStateToProps = (storeData) => ({
+    products: storeData.ProductService
+})
+
+const mapDispatchToProps = {
+    saveCallBack: saveProduct,
+    deleteCallBack: deleteProduct
+}
+
+const connnectFunction = connect(mapStateToProps, mapDispatchToProps)
+
+const ProductDisplay = connnectFunction(class extends Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -51,4 +65,6 @@ export default class ProductDisplay extends Component {
             </div>
         </div>
     }
-}
+})
+
+export default ProductDisplay

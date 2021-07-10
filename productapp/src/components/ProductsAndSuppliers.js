@@ -1,3 +1,4 @@
+import React from "react";
 import { Component } from "react";
 import ProductDisplay from "./ProductDisplay";
 import { Selector } from "./Selector";
